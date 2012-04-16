@@ -1,16 +1,16 @@
 
-platform_length = 90;
-platform_width = 55;
+platform_length = 75;
+platform_width = 35;
 platform_thickness = 3;
 
-frame_length = 40;
+frame_length = 35;
 frame_heigth = 25;
-frame_thickness = 5;
-frame_spacing = 12;
+frame_thickness = 7;
+frame_spacing = 17;
 frame_offset = 0;
 
 front_skate_radius = 7;
-front_skate_length = 30;
+front_skate_length = 25;
 
 motor_holes_radius = 2;
 motor_holes_spacing = 17;
@@ -103,7 +103,7 @@ difference()
 				cylinder(r=nut_m3_radius, h=nut_m3_thickness, $fn=6);
 
 	// Frame big hole
-	translate([frame_length/2-frame_offset/2,(frame_spacing+(2*frame_thickness))/2+offset/2,frame_heigth/-2])
+	translate([frame_length/2-frame_offset,(frame_spacing+(2*frame_thickness))/2+offset/2,frame_heigth/-2])
 		rotate(a=90,v=[1,0,0])
 			cylinder(r=1.5*front_skate_radius, h=frame_spacing+(2*frame_thickness)+offset, $fn=36);
 
@@ -115,7 +115,7 @@ difference()
 	// Skate Top hole
 	translate([0-platform_length/2+front_skate_radius,bearing_thickness/2+frame_thickness+offset/2,0-front_skate_radius])
 		rotate(a=90,v=[1,0,0])
-			cylinder(r=0.75*front_skate_radius, h=frame_thickness+offset);
+			cylinder(r=0.6*front_skate_radius, h=frame_thickness+offset);
 
 	// Skate hole
 	translate([0-platform_length/2+front_skate_radius,bearing_thickness/-2+offset/2,0-front_skate_length+front_skate_radius])
@@ -125,13 +125,13 @@ difference()
 	// Skate Top hole
 	translate([0-platform_length/2+front_skate_radius,bearing_thickness/-2+offset/2,0-front_skate_radius])
 		rotate(a=90,v=[1,0,0])
-			cylinder(r=0.75*front_skate_radius, h=frame_thickness+offset);
+			cylinder(r=0.6*front_skate_radius, h=frame_thickness+offset);
 
 	// Top Side Holes
-	translate([0,1.25*platform_width,0])
-		cylinder(r=platform_width, h=platform_thickness);
-	translate([0,-1.25*platform_width,0])
-		cylinder(r=platform_width, h=platform_thickness);
+//	translate([0,1.25*platform_width,0])
+//		cylinder(r=platform_width, h=platform_thickness);
+//	translate([0,-1.25*platform_width,0])
+//		cylinder(r=platform_width, h=platform_thickness);
 
 }
 }
@@ -139,7 +139,7 @@ difference()
 rotate(a=180,v=[1,0,0])
 union()
 {
-	translate([0,platform_width/2,platform_thickness])
+	translate([0,platform_width/2+bearing_radius+3,platform_thickness])
 			rotate(a=180, v=[1,0,0])
 				cylinder(r=0.95*bearing_radius,h=bearing_thickness+2*frame_thickness, $fn=36);
 
