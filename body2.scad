@@ -4,7 +4,7 @@ platform_width = 40;
 platform_thickness = 3;
 
 frame_length = 35;
-frame_heigth = 25;
+frame_heigth = 26;
 frame_thickness = 7;
 frame_spacing = 17;
 frame_offset_x = 5;
@@ -120,7 +120,7 @@ module skate()
 				cylinder(r=bearing_radius, h=frame_thickness+offset);
 
 		// Skate Top hole
-		translate([front_skate_radius,frame_thickness/2+offset/2,front_skate_length/2])
+		translate([front_skate_radius,frame_thickness/2+offset/2,front_skate_length/2-bearing_radius/2])
 			rotate(a=90,v=[1,0,0])
 				cylinder(r=0.6*front_skate_radius, h=frame_thickness+offset);
 	}
